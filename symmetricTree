@@ -1,0 +1,15 @@
+class Solution {
+private:
+    bool f(TreeNode* l , TreeNode* r){
+        if(l == NULL && r == NULL) return true;
+        if(l == NULL || r == NULL) return false;
+        return l-> val == r -> val &&
+        f(l -> left , r -> right)&&
+        f(l -> right , r -> left);
+    }
+public:
+    bool isSymmetric(TreeNode* root) {
+        if(root == NULL) return true;
+        return f(root -> left , root -> right);
+    }
+};
